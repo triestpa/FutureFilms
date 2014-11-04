@@ -42,7 +42,6 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if tableView == searchDisplayController!.searchResultsTableView {
             if filteredMovies == nil {
                 return 0
@@ -54,11 +53,7 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
         else {
             return movieManager.movies.count
        }
-        
-        return movieManager.movies.count
     }
-
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("MoviesTableViewCell", forIndexPath: indexPath) as UITableViewCell
@@ -73,8 +68,6 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
             thisMovie = movieManager.movies[indexPath.row]
         }
         
-        //thisMovie = movieManager.movies[indexPath.row]
-        
         cell.textLabel.text = thisMovie.title
         cell.detailTextLabel?.text = thisMovie.releaseDate
         cell.imageView.image = thisMovie.image
@@ -83,13 +76,10 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
     }
     
     
-    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
-    
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -101,8 +91,6 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    
-    
     
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
@@ -120,7 +108,7 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
     }
     
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -139,7 +127,6 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
             }
        }
     }
-*/
     
     func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
         filteredMovies = movieManager.filteredMovies(searchString)

@@ -15,6 +15,7 @@
 		CD23DE3A1A08EC0F007B1B64 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23DE391A08EC0F007B1B64 /* Movie.swift */; };
 		CD23DE3C1A08EC4D007B1B64 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23DE3B1A08EC4D007B1B64 /* MovieManager.swift */; };
 		CD23DE3E1A08F63B007B1B64 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23DE3D1A08F63B007B1B64 /* MoviesTableViewController.swift */; };
+		CD746DAE1A0961AC00155331 /* MovieDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD746DAD1A0961AC00155331 /* MovieDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		CD23DE391A08EC0F007B1B64 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CD23DE3B1A08EC4D007B1B64 /* MovieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		CD23DE3D1A08F63B007B1B64 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
+		CD746DAD1A0961AC00155331 /* MovieDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +83,12 @@
 		CD23DE161A08EB59007B1B64 /* FutureFilms */ = {
 			isa = PBXGroup;
 			children = (
-				CD23DE1D1A08EB5A007B1B64 /* Main.storyboard */,
 				CD23DE191A08EB5A007B1B64 /* AppDelegate.swift */,
 				CD23DE391A08EC0F007B1B64 /* Movie.swift */,
 				CD23DE3B1A08EC4D007B1B64 /* MovieManager.swift */,
 				CD23DE3D1A08F63B007B1B64 /* MoviesTableViewController.swift */,
+				CD746DAD1A0961AC00155331 /* MovieDetailTableViewController.swift */,
+				CD23DE1D1A08EB5A007B1B64 /* Main.storyboard */,
 				CD23DE201A08EB5A007B1B64 /* Images.xcassets */,
 				CD23DE221A08EB5A007B1B64 /* LaunchScreen.xib */,
 				CD23DE171A08EB59007B1B64 /* Supporting Files */,
@@ -222,6 +225,7 @@
 				CD23DE3C1A08EC4D007B1B64 /* MovieManager.swift in Sources */,
 				CD23DE3A1A08EC0F007B1B64 /* Movie.swift in Sources */,
 				CD23DE1A1A08EB5A007B1B64 /* AppDelegate.swift in Sources */,
+				CD746DAE1A0961AC00155331 /* MovieDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				CD23DE351A08EB5A007B1B64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD23DE361A08EB5A007B1B64 /* Build configuration list for PBXNativeTarget "FutureFilmsTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				CD23DE381A08EB5A007B1B64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
