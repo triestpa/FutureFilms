@@ -42,7 +42,7 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*
+        
         if tableView == searchDisplayController!.searchResultsTableView {
             if filteredMovies == nil {
                 return 0
@@ -54,7 +54,7 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
         else {
             return movieManager.movies.count
        }
-        */
+        
         return movieManager.movies.count
     }
 
@@ -65,15 +65,15 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
         
         var thisMovie:Movie
-        /*
+        
         if tableView == searchDisplayController!.searchResultsTableView {
             thisMovie = filteredMovies![indexPath.row]
         }
         else {
             thisMovie = movieManager.movies[indexPath.row]
         }
-        */
-        thisMovie = movieManager.movies[indexPath.row]
+        
+        //thisMovie = movieManager.movies[indexPath.row]
         
         cell.textLabel.text = thisMovie.title
         cell.detailTextLabel?.text = thisMovie.releaseDate
@@ -137,14 +137,12 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
                 let thisMovie = movieManager.movies[tableView.indexPathForSelectedRow()!.row]
                 destinationViewController.movie = thisMovie
             }
-        }
+       }
     }
+*/
     
     func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
         filteredMovies = movieManager.filteredMovies(searchString)
         return true
     }
-*/
-    
-    
 }
