@@ -14,8 +14,7 @@ private let movieManagerInstance = MovieManager()
 class MovieManager {
     var movies = [Movie]()
     
-    //class is synonymous to static
-    class var sharedmovieManager: MovieManager {
+    class var sharedMovieManager: MovieManager {
         return movieManagerInstance
     }
     
