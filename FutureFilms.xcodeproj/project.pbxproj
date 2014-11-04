@@ -81,8 +81,8 @@
 		CD23DE161A08EB59007B1B64 /* FutureFilms */ = {
 			isa = PBXGroup;
 			children = (
-				CD23DE191A08EB5A007B1B64 /* AppDelegate.swift */,
 				CD23DE1D1A08EB5A007B1B64 /* Main.storyboard */,
+				CD23DE191A08EB5A007B1B64 /* AppDelegate.swift */,
 				CD23DE391A08EC0F007B1B64 /* Movie.swift */,
 				CD23DE3B1A08EC4D007B1B64 /* MovieManager.swift */,
 				CD23DE3D1A08F63B007B1B64 /* MoviesTableViewController.swift */,
