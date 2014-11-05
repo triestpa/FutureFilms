@@ -99,15 +99,11 @@ class MoviesTableViewController: UITableViewController, UISearchBarDelegate, UIS
         movieManager.movies.insert(movieToMove, atIndex: toIndexPath.row)
     }
     
-    
-    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the item to be re-orderable.
         return true
     }
-    
-    
     
     // MARK: - Navigation
     

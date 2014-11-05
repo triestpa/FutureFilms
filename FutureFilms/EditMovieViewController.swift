@@ -16,8 +16,9 @@ class EditMovieViewController: UITableViewController {
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleTextField: UITextField!
-    @IBOutlet weak var movieLocationTextField: UITextField!
-    @IBOutlet weak var movieDescriptionTextView: UITextView!
+    @IBOutlet weak var movieReleaseDateTextField: UITextField!
+    @IBOutlet weak var movieReviewTextField: UITextField!
+    @IBOutlet weak var movieDescriptionTextField: UITextView!
     @IBOutlet weak var tapLabel: UILabel!
     
     override func viewDidLoad() {
@@ -26,22 +27,23 @@ class EditMovieViewController: UITableViewController {
         if let initialMovie = self.movie {
             movieImageView.image = initialMovie.image
             movieTitleTextField.text = initialMovie.title
-            movieDescriptionTextView.text = initialMovie.description
+            movieDescriptionTextField.text = initialMovie.description
         }
     }
     
-    @IBAction func cancelButtonTap(sender: AnyObject) {
+    @IBAction func cancelButtonTap(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
+
     }
     
-    @IBAction func saveButtonTap(sender: AnyObject) {
+    @IBAction func saveButtonTap(sender: UIBarButtonItem) {
         if movie == nil {
             movie = Movie(title: movie.title, description: movie.description, review: movie.review, releaseDate: movie.releaseDate, image: movie.image?)
             MovieManager.sharedMovieManager.movies.append(movie)
         }
         else {
             movie.title = movieTitleTextField.text
-            movie.description = movieDescriptionTextView.text
+            movie.description = movieDescriptionTextField.text
             movie.image = movieImageView.image
         }
         
