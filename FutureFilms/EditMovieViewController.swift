@@ -27,6 +27,8 @@ class EditMovieViewController: UITableViewController {
         if let initialMovie = self.movie {
             movieImageView.image = initialMovie.image
             movieTitleTextField.text = initialMovie.title
+            movieReleaseDateTextField.text = initialMovie.releaseDate
+            movieReviewTextField.text = initialMovie.review
             movieDescriptionTextField.text = initialMovie.description
         }
     }
@@ -38,7 +40,7 @@ class EditMovieViewController: UITableViewController {
     
     @IBAction func saveButtonTap(sender: UIBarButtonItem) {
         if movie == nil {
-            movie = Movie(title: movie.title, description: movie.description, review: movie.review, releaseDate: movie.releaseDate, image: movie.image?)
+            movie = Movie(title: movieTitleTextField.text, description: movieDescriptionTextField.text, review: movieReviewTextField.text, releaseDate: movieReleaseDateTextField.text, image: movieImageView.image?)
             MovieManager.sharedMovieManager.movies.append(movie)
         }
         else {

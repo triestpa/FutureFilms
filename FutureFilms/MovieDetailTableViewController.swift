@@ -19,26 +19,27 @@ class MovieDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        movieReviewLabel.text = "Rating: " + movie.review
-        movieReleaseDateLabel.text = "Release Date: " + movie.releaseDate
-        movieDescriptionText.text = movie.description
-        moviePosterImage.image = movie.image
-        
-        navigationItem.title = movie.title
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Attempt to set the first cell to equal the visible screen area, is not working as expected
+        let navBarHeight = self.navigationController?.navigationBar.frame.height
+        moviePosterCell.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - navBarHeight!)
        
         movieReviewLabel.text = "Rating: " + movie.review
         movieReleaseDateLabel.text = "Release Date: " + movie.releaseDate
         movieDescriptionText.text = movie.description
         moviePosterImage.image = movie.image
         
-        originalImageHeight = 600
+        
+        originalImageHeight = UIScreen.mainScreen().bounds.height - navBarHeight!
+        moviePosterImage.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.originalImageHeight - navBarHeight!)
 
         navigationItem.title = movie.title
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
