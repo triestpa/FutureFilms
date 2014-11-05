@@ -189,7 +189,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="irK-7h-3ZQ" id="Vz3-41-d15">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBe-1Q-0Rp">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBe-1Q-0Rp">
                                                     <rect key="frame" x="13" y="10" width="574" height="279"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -267,24 +267,27 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcg-LZ-lHd" id="yzM-dr-t73">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to pick an image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWj-sE-da2">
-                                                    <rect key="frame" x="220" y="139" width="160" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0BO-HQ-fTR">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um5-Wu-vrP">
+                                                    <rect key="frame" x="238" y="135" width="125" height="30"/>
+                                                    <state key="normal" title="Tap To Pick Image">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleImageTap:" destination="Nkr-M6-1qU" eventType="touchUpInside" id="ACy-z4-ZQo"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0BO-HQ-fTR">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0BO-HQ-fTR" firstAttribute="top" secondItem="yzM-dr-t73" secondAttribute="top" id="K7C-nS-StR"/>
-                                                <constraint firstAttribute="centerY" secondItem="SWj-sE-da2" secondAttribute="centerY" id="T9E-uT-A32"/>
-                                                <constraint firstItem="0BO-HQ-fTR" firstAttribute="centerX" secondItem="SWj-sE-da2" secondAttribute="centerX" id="Vr1-uJ-3F7"/>
-                                                <constraint firstItem="0BO-HQ-fTR" firstAttribute="centerY" secondItem="SWj-sE-da2" secondAttribute="centerY" id="elT-HQ-j0A"/>
-                                                <constraint firstItem="0BO-HQ-fTR" firstAttribute="leading" secondItem="yzM-dr-t73" secondAttribute="leading" id="gJN-6x-f9d"/>
-                                                <constraint firstAttribute="centerX" secondItem="SWj-sE-da2" secondAttribute="centerX" id="zv3-HG-ujX"/>
+                                                <constraint firstAttribute="trailing" secondItem="0BO-HQ-fTR" secondAttribute="trailing" id="67H-rT-BeU"/>
+                                                <constraint firstItem="0BO-HQ-fTR" firstAttribute="leading" secondItem="yzM-dr-t73" secondAttribute="leading" id="F8Y-Rg-Lf0"/>
+                                                <constraint firstItem="0BO-HQ-fTR" firstAttribute="top" secondItem="yzM-dr-t73" secondAttribute="top" id="G1d-XF-e8Z"/>
+                                                <constraint firstAttribute="centerY" secondItem="Um5-Wu-vrP" secondAttribute="centerY" id="Lyt-DK-GS4"/>
+                                                <constraint firstAttribute="centerX" secondItem="Um5-Wu-vrP" secondAttribute="centerX" id="ZTz-7h-O1X"/>
+                                                <constraint firstAttribute="bottom" secondItem="0BO-HQ-fTR" secondAttribute="bottom" id="q55-05-YZl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -411,7 +414,6 @@
                         <outlet property="movieReleaseDateTextField" destination="vOE-nV-4u0" id="nxj-ma-gJk"/>
                         <outlet property="movieReviewTextField" destination="dcH-ey-fME" id="MmX-nD-xlc"/>
                         <outlet property="movieTitleTextField" destination="8eQ-c2-iCp" id="KO2-UY-x8d"/>
-                        <outlet property="tapLabel" destination="SWj-sE-da2" id="FyF-s3-BpP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gi0-5j-q6P" userLabel="First Responder" sceneMemberID="firstResponder"/>

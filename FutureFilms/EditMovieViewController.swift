@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 import MessageUI
 
-class EditMovieViewController: UITableViewController {
+class EditMovieViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var movie: Movie!
+    var img: UIImage!
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieReleaseDateTextField: UITextField!
     @IBOutlet weak var movieReviewTextField: UITextField!
     @IBOutlet weak var movieDescriptionTextField: UITextView!
-    @IBOutlet weak var tapLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,21 @@ class EditMovieViewController: UITableViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func handleImageTap(sender: UITapGestureRecognizer) {
+    @IBAction func handleImageTap(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
+            var imag = UIImagePickerController()
+            imag.delegate = self
+            imag.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+            imag.allowsEditing = false
+            self.presentViewController(imag, animated: true, completion: nil)
+        }
     }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+        let selectedImage : UIImage = image
+        movieImageView.image = selectedImage
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
 }
