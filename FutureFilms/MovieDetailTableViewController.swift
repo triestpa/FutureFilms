@@ -9,32 +9,34 @@ import UIKit
 
 class MovieDetailTableViewController: UITableViewController {
     var movie: Movie!
+    var originalImageHeight = CGFloat(0.0)
     
-    @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieReviewLabel: UILabel!
     @IBOutlet weak var movieReleaseDateLabel: UILabel!
     @IBOutlet weak var movieDescriptionText: UITextView!
     @IBOutlet weak var moviePosterImage: UIImageView!
+    @IBOutlet weak var moviePosterCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        movieTitleLabel.text = movie.title
+    
         movieReviewLabel.text = "Rating: " + movie.review
         movieReleaseDateLabel.text = "Release Date: " + movie.releaseDate
         movieDescriptionText.text = movie.description
-
+        moviePosterImage.image = movie.image
+        
         navigationItem.title = movie.title
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
        
-        movieTitleLabel.text = movie.title
         movieReviewLabel.text = "Rating: " + movie.review
         movieReleaseDateLabel.text = "Release Date: " + movie.releaseDate
         movieDescriptionText.text = movie.description
         moviePosterImage.image = movie.image
+        
+        originalImageHeight = 600
 
         navigationItem.title = movie.title
     }
@@ -44,6 +46,14 @@ class MovieDetailTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /* Attempt at a cool image-folding visual effect */
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset
+        UIView.animateWithDuration(0, animations: {
+           self.moviePosterImage.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.originalImageHeight - offset.y)
+        })
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -80,7 +90,7 @@ class MovieDetailTableViewController: UITableViewController {
     */
     
     
-    /*
+    
     
     // MARK: - Navigation
     
@@ -88,9 +98,8 @@ class MovieDetailTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         let navigationController = segue.destinationViewController as UINavigationController
         let editMovieViewController = navigationController.topViewController as EditMovieViewController
-        
         editMovieViewController.movie = movie
     }
-*/
+
 }
 
